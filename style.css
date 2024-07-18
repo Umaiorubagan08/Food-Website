@@ -49,10 +49,7 @@ body {
     text-decoration: none;
 }
 
-    
-
-/* Add these styles to your existing CSS */
-
+/* Search Container */
 .search-container {
     margin: 20px 0;
     display: flex;
@@ -81,6 +78,7 @@ body {
     background-color: #039a5b;
 }
 
+/* Search Results */
 .search-results {
     margin-top: 20px;
     display: flex;
@@ -163,6 +161,16 @@ body {
     border: 5px solid whitesmoke;
     border-radius: 10px;
     text-align: center;
+    animation: slideInUp 0.5s ease-in-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 .menu-item__image {
@@ -197,18 +205,15 @@ body {
     color: white;
 }
 
-
-
-
 .action-buttons {
     display: flex;
-    justify-content:last baseline;
+    justify-content: center;
     gap: 10px;
     margin: 20px 0;
-    padding-left: 45%;
 }
 
-#sort-button, #reset-button {
+#sort-button,
+#reset-button {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -218,8 +223,51 @@ body {
     font-size: 1em;
 }
 
-#sort-button:hover, #reset-button:hover {
+#sort-button:hover,
+#reset-button:hover {
     background-color: #039a5b;
 }
 
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar__left,
+    .navbar__right {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    #search-input {
+        width: 100%;
+    }
+
+    .search-results,
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-item,
+    .menu-item {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
